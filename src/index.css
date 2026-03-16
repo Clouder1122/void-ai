@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #242424;
+    --bg-tertiary: #2d2d2d;
+    --border-color: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #999999;
+    --text-tertiary: #666666;
+    --accent-color: #888888;
+    --accent-contrast: #ffffff;
+    
+    /* Metallic Effects */
+    --metallic-surface: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    --metallic-border: linear-gradient(145deg, #444444, #2a2a2a);
+    --metallic-shine: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  }
+
+  :root.light {
+    --bg-primary: #e0e0e0;
+    --bg-secondary: #d4d4d4;
+    --bg-tertiary: #c0c0c0;
+    --border-color: #a0a0a0;
+    --text-primary: #1a1a1a;
+    --text-secondary: #444444;
+    --text-tertiary: #666666;
+    --accent-color: #1a1a1a;
+    --accent-contrast: #ffffff;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    @apply antialiased transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Markdown Styles */
+.prose {
+  color: var(--text-secondary);
+}
+.prose p {
+  @apply mb-4 last:mb-0;
+}
+.prose code {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  @apply px-1.5 py-0.5 rounded font-mono text-sm before:content-none after:content-none;
+}
+.prose pre {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  @apply p-4 rounded-xl overflow-x-auto my-4;
+}
+.prose pre code {
+  @apply bg-transparent p-0;
+  color: var(--text-secondary);
+}
+.prose h1, .prose h2, .prose h3 {
+  color: var(--text-primary);
+  @apply font-bold mt-6 mb-4;
+}
+.prose ul, .prose ol {
+  @apply ml-6 mb-4 space-y-2;
+}
+.prose li {
+  @apply list-disc;
+}
+
